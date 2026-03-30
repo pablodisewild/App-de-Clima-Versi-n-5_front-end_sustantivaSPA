@@ -1,0 +1,72 @@
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-dark bg-dark mb-4">
+        <div class="container">
+            <a class="navbar-brand mx-auto" href="#">Clima del mundo - 2026 - Patrocinado por Sustantiva Spa</a>
+        </div>
+    </nav>
+</header>
+
+<main class="container my-5">
+  <h1 class="text-center mb-4"><b>Pronóstico semanal del Tiempo</b><br>Ejercicio de Portafolio V.4</h1>
+  <section>
+  <div id="contenedor-ciudades" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    </div>
+  </section>
+</main>
+
+<footer class="bg-light text-center py-4 border-top mt-5">
+    <p>Proyecto AppClima Front-end - Módulo 4 - Pablo Ignacio Muñoz García</p>
+</footer>
+</body>
+<!-- Aquí agregue el script nuevo en el que desarrolle la solicitud del ejercicio de Portafolio del módulo 4 -->
+<script src="assets/js/datosnuevos.js"></script>
+<script>
+const ciudades = [
+    { nombre: "Santiago", temp: "25°C", estado: "Soleado", icono: "☀️", id: 1 },
+    { nombre: "Londres", temp: "12°C", estado: "Lluvioso", icono: "🌧️", id: 2 },
+    { nombre: "Nueva York", temp: "18°C", estado: "Nublado", icono: "☁️", id: 3 },
+    { nombre: "Tokio", temp: "21°C", estado: "Parcialmente nublado", icono: "⛅", id: 4 },
+    { nombre: "París", temp: "15°C", estado: "Viento", icono: "💨", id: 5 },
+    { nombre: "Moscú", temp: "-5°C", estado: "Nieve", icono: "❄️", id: 6 },
+    { nombre: "Sidney", temp: "28°C", estado: "Soleado", icono: "☀️", id: 7 },
+    { nombre: "Ciudad de México", temp: "22°C", estado: "Despejado", icono: "☀️", id: 8 },
+    { nombre: "Berlín", temp: "10°C", estado: "Niebla", icono: "🌫️", id: 9 },
+    { nombre: "El Cairo", temp: "32°C", estado: "Caluroso", icono: "🔥", id: 10 }
+];
+
+const contenedor = document.getElementById('contenedor-ciudades');
+
+function cargarCiudades() {
+    ciudades.forEach(ciudad => {
+const card = `
+            <article class="col-md-4 mb-4"> 
+                <div class="card shadow-sm h-100 place-card">
+                    <div class="card-body text-center place-card__body">
+                        <span class="display-4 place-card__icon">${ciudad.icono}</span>
+                        <h5 class="card-title mt-2 place-card__name">${ciudad.nombre}</h5>
+                        <p class="card-text fs-4 fw-bold text-primary place-card__temp">${ciudad.temp}</p>
+                        <p class="badge bg-info text-dark place-card__status">${ciudad.estado}</p>
+                        <br>
+                        <button class="btn btn-outline-primary mt-3 place-card__btn" onclick="verDetalle(${ciudad.id})">
+                            Ver detalle
+                        </button>
+                    </div>
+                </div>
+            </article>
+        `;
+        contenedor.innerHTML += card;
+    });
+}
+
+cargarCiudades();
+
+function verDetalle(id) {
+
+    window.location.href = `detalle.html?id=${id}`;
+}
+</script>

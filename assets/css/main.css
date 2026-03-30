@@ -1,0 +1,105 @@
+body {
+  background: linear-gradient(to right, hsl(14, 59%, 49%), hsl(22, 100%, 60%));
+  min-height: 100vh;
+}
+
+.weather-hero {
+  border-radius: 30px;
+  -webkit-backdrop-filter: blur(1px);
+          backdrop-filter: blur(1px);
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto 2rem;
+  min-height: 180px;
+  transition: background-color 300ms ease;
+}
+.weather-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.1));
+  z-index: 0;
+}
+.weather-hero > * {
+  position: relative;
+  z-index: 1;
+}
+.weather-hero::before {
+  content: "";
+  transition: opacity 300ms ease, filter 300ms ease;
+  filter: saturate(1.05);
+  position: absolute;
+  inset: -15%;
+  opacity: 0.28;
+  pointer-events: none;
+  transform: translate3d(0, 0, 0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .weather-hero::before {
+    animation: none !important;
+  }
+}
+.weather-hero--windy::before {
+  background: radial-gradient(circle at 15% 35%, rgba(32, 201, 151, 0.4) 0 18%, transparent 36%), radial-gradient(circle at 75% 55%, rgba(13, 110, 253, 0.26) 0 22%, transparent 42%), repeating-linear-gradient(0deg, rgba(13, 110, 253, 0.1) 0 2px, transparent 2px 18px);
+  animation: windWave 6.5s linear infinite;
+}
+.weather-hero--rainy::before {
+  background: radial-gradient(circle at 30% 40%, rgba(108, 117, 125, 0.3) 0 26%, transparent 52%), radial-gradient(circle at 65% 35%, rgba(108, 117, 125, 0.22) 0 28%, transparent 56%), repeating-linear-gradient(115deg, rgba(13, 110, 253, 0.16) 0 2px, transparent 2px 10px);
+  animation: rainFall 1.15s linear infinite;
+  filter: saturate(1.05);
+}
+.weather-hero--sunny::before {
+  background: radial-gradient(circle at 70% 35%, rgba(255, 193, 7, 0.55) 0 18%, transparent 40%), radial-gradient(circle at 45% 65%, rgba(255, 193, 7, 0.22) 0 14%, transparent 34%), radial-gradient(circle at 20% 25%, rgba(255, 193, 7, 0.16) 0 10%, transparent 28%);
+  animation: sunFloat 5.5s ease-in-out infinite;
+}
+.weather-hero--cloudy::before {
+  background: radial-gradient(circle at 25% 45%, rgba(108, 117, 125, 0.26) 0 24%, transparent 52%), radial-gradient(circle at 55% 40%, rgba(108, 117, 125, 0.18) 0 28%, transparent 58%), radial-gradient(circle at 78% 55%, rgba(108, 117, 125, 0.14) 0 22%, transparent 50%);
+  animation: cloudDrift 12s ease-in-out infinite;
+}
+.weather-hero--default::before {
+  background: linear-gradient(120deg, rgba(0, 0, 0, 0.06), transparent 60%);
+  animation: drift 12s linear infinite;
+}
+
+@keyframes sunFloat {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.22;
+  }
+  50% {
+    transform: translateY(-8px) scale(1.03);
+    opacity: 0.28;
+  }
+}
+@keyframes windWave {
+  from {
+    transform: translateX(-6%) translateY(-2%);
+    opacity: 0.2;
+  }
+  to {
+    transform: translateX(6%) translateY(2%);
+    opacity: 0.26;
+  }
+}
+@keyframes rainFall {
+  from {
+    transform: translateY(-10%);
+  }
+  to {
+    transform: translateY(10%);
+  }
+}
+@keyframes cloudDrift {
+  0%, 100% {
+    transform: translateX(-3%);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translateX(3%);
+    opacity: 0.26;
+  }
+}/*# sourceMappingURL=main.css.map */
