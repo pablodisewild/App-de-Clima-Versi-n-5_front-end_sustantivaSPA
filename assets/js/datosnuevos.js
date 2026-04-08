@@ -9,6 +9,7 @@ const iconosClima = {
   "Viento": "💨",
   "Niebla": "🌫️"
 };
+
 const lugares = [
     // Aquí solo ajuste el código pero mantuve la idea de que lugares correspondia a Ciudades.
 {
@@ -18,6 +19,8 @@ const lugares = [
   estadoActual: "Soleado",
   humedad: 45,
   viento: 12,
+  lat: -33.45,
+  lon: -70.66,  
   pronosticoSemanal: [
     { dia: "Lunes", min: 20, max: 28, estado: "Soleado" },
     { dia: "Martes", min: 22, max: 30, estado: "Soleado" },
@@ -33,6 +36,8 @@ const lugares = [
   estadoActual: "Lluvioso",
   humedad: 85,
   viento: 18,
+  lat: 51.50, 
+  lon: -0.12,
   pronosticoSemanal: [
     { dia: "Lunes", min: 12, max: 15, estado: "Lluvioso" },
     { dia: "Martes", min: 11, max: 14, estado: "Lluvioso" },
@@ -48,6 +53,8 @@ const lugares = [
   estadoActual: "Nublado",
   humedad: 60,
   viento: 22,
+  lat: 40.71, 
+  lon: -74.00,
   pronosticoSemanal: [
     { dia: "Lunes", min: 15, max: 18, estado: "Nublado" },
     { dia: "Martes", min: 17, max: 20, estado: "Parcial" },
@@ -63,6 +70,8 @@ const lugares = [
   estadoActual: "Parcial",
   humedad: 70,
   viento: 14,
+  lat: 35.68, 
+  lon: 139.69,
   pronosticoSemanal: [
     { dia: "Lunes", min: 20, max: 22, estado: "Parcial" },
     { dia: "Martes", min: 21, max: 23, estado: "Soleado" },
@@ -78,6 +87,8 @@ const lugares = [
   estadoActual: "Viento",
   humedad: 55,
   viento: 24,
+  lat: 48.85, 
+  lon: 2.35,
   pronosticoSemanal: [
     { dia: "Lunes", min: 14, max: 16, estado: "Viento" },
     { dia: "Martes", min: 13, max: 15, estado: "Nublado" },
@@ -93,6 +104,8 @@ const lugares = [
   estadoActual: "Nieve",
   humedad: 85,
   viento: 16,
+  lat: 55.75, 
+  lon: 37.61,
   pronosticoSemanal: [
     { dia: "Lunes", min: -6, max: -4, estado: "Nieve" },
     { dia: "Martes", min: -8, max: -6, estado: "Nieve" },
@@ -108,6 +121,8 @@ const lugares = [
   estadoActual: "Soleado",
   humedad: 50,
   viento: 16,
+  lat: -33.86, 
+  lon: 151.20,
   pronosticoSemanal: [
     { dia: "Lunes", min: 24, max: 27, estado: "Soleado" },
     { dia: "Martes", min: 26, max: 29, estado: "Soleado" },
@@ -123,6 +138,8 @@ const lugares = [
   estadoActual: "Soleado",
   humedad: 40,
   viento: 12,
+  lat: 19.43, 
+  lon: -99.13,
   pronosticoSemanal: [
     { dia: "Lunes", min: 20, max: 23, estado: "Soleado" },
     { dia: "Martes", min: 19, max: 22, estado: "Soleado" },
@@ -138,6 +155,8 @@ const lugares = [
   estadoActual: "Niebla",
   humedad: 78,
   viento: 15,
+  lat: 52.52, 
+  lon: 13.40,
   pronosticoSemanal: [
     { dia: "Lunes", min: 9, max: 11, estado: "Niebla" },
     { dia: "Martes", min: 10, max: 12, estado: "Nublado" },
@@ -153,6 +172,8 @@ const lugares = [
   estadoActual: "Caluroso",
   humedad: 10,
   viento: 20,
+  lat: 30.04, 
+  lon: 31.23,
   pronosticoSemanal: [
     { dia: "Lunes", min: 30, max: 33, estado: "Caluroso" },
     { dia: "Martes", min: 29, max: 32, estado: "Soleado" },
@@ -162,110 +183,4 @@ const lugares = [
   ]
 }
 ];
-// 1. ID desde URL
-const params = new URLSearchParams(window.location.search);
-const id = parseInt(params.get("id"));
 
-// 2. Buscar ciudad en lugares
-const ciudad = lugares.find(l => l.id === id);
-
-// 3. DOM
-const tituloCiudad = document.getElementById("nombre-ciudad");
-const contenedorSemanal = document.getElementById("pronostico-semanal");
-const textoHumedad = document.getElementById("humedad-detalle");
-const textoViento = document.getElementById("viento-detalle");
-
-// 4. Función de datos estadísticos
-function calcularEstadisticas(pronostico) {
-  let min = Infinity;
-  let max = -Infinity;
-  let suma = 0;
-  let conteo = {};
-
-  for (let dia of pronostico) {
-    if (dia.min < min) min = dia.min;
-    if (dia.max > max) max = dia.max;
-
-    suma += (dia.min + dia.max) / 2;
-
-    conteo[dia.estado] = (conteo[dia.estado] || 0) + 1;
-  }
-
-  const promedio = (suma / pronostico.length).toFixed(1);
-
-  let resumen = "Semana variada";
-  if (conteo["Soleado"] >= 3) resumen = "Semana mayormente soleada ☀️";
-  else if (conteo["Lluvioso"] >= 3) resumen = "Semana lluviosa 🌧️";
-  else if (max > 30) resumen = "Semana calurosa 🔥";
-
-  return { min, max, promedio, conteo, resumen };
-}
-
-// 5. Datos claves
-if (ciudad) {
-
-  tituloCiudad.innerText = `Clima en ${ciudad.nombre}`;
-
-  textoHumedad.innerText = `💧 Humedad: ${ciudad.humedad}%`;
-  textoViento.innerText = `💨 Viento: ${ciudad.viento} km/h`;
-
-  // Fondo dinámico
-  const hero = document.getElementById("info-ciudad");
-
-  hero.classList.remove(
-    "weather-hero--sunny",
-    "weather-hero--rainy",
-    "weather-hero--windy",
-    "weather-hero--cloudy",
-    "weather-hero--default"
-  );
-
-  let modifier = "default";
-  if (ciudad.viento >= 22) modifier = "windy";
-  else if (ciudad.humedad >= 75) modifier = "rainy";
-  else modifier = "sunny";
-
-  hero.classList.add(`weather-hero--${modifier}`);
-
-  // Pronóstico semanal
-  contenedorSemanal.innerHTML = "";
-
-  ciudad.pronosticoSemanal.forEach(dia => {
-    contenedorSemanal.innerHTML += `
-      <div class="col">
-        <div class="card text-center">
-          <div class="card-body">
-            <p>${dia.dia}</p>
-            <p class="fs-3">${iconosClima[dia.estado] || "❓"}</p>
-            <p>${dia.estado}</p>
-            <p>${dia.min}° / ${dia.max}°</p>
-          </div>
-        </div>
-      </div>
-    `;
-  });
-
-  // Estadísticas completas
-  const stats = calcularEstadisticas(ciudad.pronosticoSemanal);
-
-  let estadosHTML = "";
-  for (let estado in stats.conteo) {
-    estadosHTML += `<p>${estado}: ${stats.conteo[estado]} días</p>`;
-  }
-
-  const statsHTML = `
-  <div class="mt-5 p-4 border rounded text-center bg-white shadow">
-      <h3>Estadísticas de la semana</h3>
-      <p>🌡️ Mín: ${stats.min}°C</p>
-      <p>🔥 Máx: ${stats.max}°C</p>
-      <p>📊 Promedio: ${stats.promedio}°C</p>
-      ${estadosHTML}
-      <p><strong>${stats.resumen}</strong></p>
-    </div>
-  `;
-
-  document.querySelector("main").innerHTML += statsHTML;
-
-} else {
-  tituloCiudad.innerText = "Ciudad no encontrada";
-}

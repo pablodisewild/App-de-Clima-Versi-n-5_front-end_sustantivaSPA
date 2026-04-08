@@ -1,6 +1,8 @@
-const container = document.getElementById("contenedor-ciudades");
+const ciudades = app.obtenerLugares();
 
-lugares.forEach(ciudad => {
+const container = document.getElementById("contenedor-ciudades");
+ciudades.forEach(async (ciudad) => {
+  
   const col = document.createElement("div");
   col.className = "col-12 col-sm-6 col-md-4 col-lg-3 mb-4";
 
@@ -8,7 +10,7 @@ lugares.forEach(ciudad => {
     <article class="card h-100 city-card" data-id="${ciudad.id}">
       <div class="card-body text-center">
         <h5>${ciudad.nombre}</h5>
-        <p class="display-6">${ciudad.tempActual}°C</p>
+        <p class="display-6 temp">Cargando...</p>
         <span class="badge bg-primary">${ciudad.estadoActual}</span>
       </div>
     </article>
@@ -19,5 +21,13 @@ lugares.forEach(ciudad => {
   });
 
   container.appendChild(col);
-});
 
+  const tempElemento = col.querySelector(".temp");
+
+  try {
+    const temp = await app.obtenerClima(ciudad.lat, ciudad.lon);
+    tempElemento.innerText = temp !== null ? `${temp}°C` : "N/D";
+  } catch (error) {
+    tempElemento.innerText = "N/D";
+  }
+});

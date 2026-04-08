@@ -1,41 +1,49 @@
-# App Clima del Mundo 2026 - Presentado por Pablo Ignacio Muñoz García
+# App de Clima - V.5
 
 ## Descripción
 
-Aplicación web desarrollada en JavaScript que muestra el clima actual 2026 y el pronóstico semanal de distintas ciudades del mundo.
-Permite visualizar detalles como temperatura, estado del clima, humedad, viento y estadísticas semanales.
+Esta es una aplicación web de clima 2026 que muestra información meteorológica de distintas ciudades.  
+Permite ver el clima actual, humedad, viento y un pronóstico semanal de cada lugar seleccionado.
 
-## Modelo de Datos
 
-La aplicación utiliza un arreglo llamado `lugares`, donde cada objeto representa una ciudad con la siguiente estructura:
+## Estructura de clases
 
-* `id`: identificador único
-* `nombre`: nombre de la ciudad
-* `tempActual`: temperatura actual
-* `estadoActual`: condición climática actual
-* `humedad`: porcentaje de humedad
-* `viento`: velocidad del viento
-* `pronosticoSemanal`: arreglo con el clima de 5 días
+- **WeatherApp**
+  - Clase principal de la aplicación.
+  - Maneja la lista de ciudades (lugares).
+  - Obtiene datos del clima desde la API.
+  - Calcula estadísticas del pronóstico semanal.
+  - Guarda información en caché para mejorar rendimiento.
 
-Cada día incluye:
 
-* día
-* temperatura mínima y máxima
-* estado del clima
+## 🌍 API utilizada
 
-## Estadísticas Calculadas
+Se utiliza la API de Open-Meteo:
 
-La aplicación calcula automáticamente:
+- Nombre: Open-Meteo API
+- URL base: https://api.open-meteo.com/v1/forecast
+- Documentación: https://open-meteo.com/
 
-* Temperatura mínima de la semana
-* Temperatura máxima de la semana
-* Temperatura promedio
-* Conteo de estados climáticos (soleado, lluvioso, etc.)
-* Resumen general del clima semanal
+Esta API permite obtener datos meteorológicos como temperatura, viento y humedad sin necesidad de autenticación.
 
-## Funcionalidades Clave
 
-* Navegación entre ciudades mediante parámetros en la URL
-* Renderizado dinámico con JavaScript
-* Cálculo automático de estadísticas
-* Diseño responsivo con Bootstrap
+## Cálculo de estadísticas
+
+Las estadísticas del pronóstico semanal se calculan recorriendo los datos diarios y obteniendo:
+
+- Temperatura mínima del período
+- Temperatura máxima del período
+- Promedio de temperaturas
+- Conteo de tipos de clima (soleado, nublado, lluvia, etc.)
+
+Con estos valores se genera también un resumen y alertas según las condiciones del clima.
+
+
+## Repositorio
+
+https://github.com/pablodisewild/App-de-Clima-Versi-n-5_front-end_sustantivaSPA.git
+
+
+## Autor
+
+Pablo Ignacio Muñoz García - Estudiante del Bootcamp Front-end Sustantiva Spa
