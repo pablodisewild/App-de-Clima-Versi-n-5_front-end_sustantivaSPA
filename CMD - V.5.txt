@@ -35,4 +35,78 @@ remote: Resolving deltas: 100% (6/6), done.
 To https://github.com/pablodisewild/App-de-Clima-Versi-n-5_front-end_sustantivaSPA.git
  * [new branch]      main -> main
 branch 'main' set up to track 'origin/main'.
+PS C:\Front-End Talento digital\Módulo 5\aplicacion_clima_m5> git commit -m "Fix: corregidas rutas de scripts para GitHub Pages"
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   detalle.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+PS C:\Front-End Talento digital\Módulo 5\aplicacion_clima_m5> git push
+To https://github.com/pablodisewild/App-de-Clima-Versi-n-5_front-end_sustantivaSPA.git
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'https://github.com/pablodisewild/App-de-Clima-Versi-n-5_front-end_sustantivaSPA.git'
+hint: Updates were rejected because the remote contains work that you do not
+hint: have locally. This is usually caused by another repository pushing to
+hint: the same ref. If you want to integrate the remote changes, use
+hint: 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+PS C:\Front-End Talento digital\Módulo 5\aplicacion_clima_m5> git pull origin main --allow-unrelated-histories
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 3 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)
+Unpacking objects: 100% (3/3), 1.37 KiB | 93.00 KiB/s, done.
+From https://github.com/pablodisewild/App-de-Clima-Versi-n-5_front-end_sustantivaSPA
+ * branch            main       -> FETCH_HEAD
+   c09a866..8389144  main       -> origin/main
+Updating c09a866..8389144
+Fast-forward
+ CMD - V.5.txt | 57 +++++++++++++++++++++++++++++----------------------------
+ 1 file changed, 29 insertions(+), 28 deletions(-)
+PS C:\Front-End Talento digital\Módulo 5\aplicacion_clima_m5> git add .
+PS C:\Front-End Talento digital\Módulo 5\aplicacion_clima_m5> git commit -m "Cambios remotos"
+[main 5e04100] Cambios remotos
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+PS C:\Front-End Talento digital\Módulo 5\aplicacion_clima_m5> git push origin main
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 317 bytes | 317.00 KiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To https://github.com/pablodisewild/App-de-Clima-Versi-n-5_front-end_sustantivaSPA.git
+   8389144..5e04100  main -> main
+PS C:\Front-End Talento digital\Módulo 5\aplicacion_clima_m5> git add .
+PS C:\Front-End Talento digital\Módulo 5\aplicacion_clima_m5> git commit -m "Fix: rutas corregidas para compatibilidad con GitHub Pages"
+[main 46e79f2] Fix: rutas corregidas para compatibilidad con GitHub Pages
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+PS C:\Front-End Talento digital\Módulo 5\aplicacion_clima_m5> git push origin main
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 345 bytes | 345.00 KiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To https://github.com/pablodisewild/App-de-Clima-Versi-n-5_front-end_sustantivaSPA.git
+   5e04100..46e79f2  main -> main
+PS C:\Front-End Talento digital\Módulo 5\aplicacion_clima_m5> git add .
+PS C:\Front-End Talento digital\Módulo 5\aplicacion_clima_m5> git commit -m "Fix: correcion en palabra de enlace"
+[main c65f6cf] Fix: correcion en palabra de enlace
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+PS C:\Front-End Talento digital\Módulo 5\aplicacion_clima_m5> git push origin main
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 318 bytes | 318.00 KiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To https://github.com/pablodisewild/App-de-Clima-Versi-n-5_front-end_sustantivaSPA.git
+   46e79f2..c65f6cf  main -> main
 PS C:\Front-End Talento digital\Módulo 5\aplicacion_clima_m5>
