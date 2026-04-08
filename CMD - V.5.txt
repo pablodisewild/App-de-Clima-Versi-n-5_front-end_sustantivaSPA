@@ -3,35 +3,36 @@ Copyright (C) Microsoft Corporation. Todos los derechos reservados.
 
 Instale la versión más reciente de PowerShell para obtener nuevas características y mejoras. https://aka.ms/PSWindows
 
-PS C:\Front-End Talento digital\Módulo 4\ENTREGA FINAL - MÓDULO 4\aplicacion_clima_m4> git init
-Initialized empty Git repository in C:/Front-End Talento digital/Módulo 4/ENTREGA FINAL - MÓDULO 4/aplicacion_clima_m4/.git/
-PS C:\Front-End Talento digital\Módulo 4\ENTREGA FINAL - MÓDULO 4\aplicacion_clima_m4> git remote add origin https://github.com/pablodisewild/modulo4-front-end_sustantiva_spa-portafolio-v4.git
-PS C:\Front-End Talento digital\Módulo 4\ENTREGA FINAL - MÓDULO 4\aplicacion_clima_m4> git add .
+PS C:\Front-End Talento digital\Módulo 5\aplicacion_clima_m5> git init
+Reinitialized existing Git repository in C:/Front-End Talento digital/Módulo 5/aplicacion_clima_m5/.git/
+PS C:\Front-End Talento digital\Módulo 5\aplicacion_clima_m5> git add .
 warning: in the working copy of 'assets/css/main.css', LF will be replaced by CRLF the next time Git touches it
-PS C:\Front-End Talento digital\Módulo 4\ENTREGA FINAL - MÓDULO 4\aplicacion_clima_m4> git commit -m "Nueva version de App Clima con logica JS y estadisticas"
-[master (root-commit) e33bade] Nueva version de App Clima con logica JS y estadisticas
- 11 files changed, 685 insertions(+)
- create mode 100644 Link GitHub Aqui.txt
- create mode 100644 README.md
- create mode 100644 assets/css/main.css
- create mode 100644 assets/css/main.css.map
- create mode 100644 assets/js/datosnuevos.js
- create mode 100644 assets/js/main.js
- create mode 100644 assets/scss/base/_mixins.scss
- create mode 100644 assets/scss/base/_variables.scss
- create mode 100644 assets/scss/main.scss
- create mode 100644 detalle.html
- create mode 100644 index.html
-PS C:\Front-End Talento digital\Módulo 4\ENTREGA FINAL - MÓDULO 4\aplicacion_clima_m4> git branch -M main
-PS C:\Front-End Talento digital\Módulo 4\ENTREGA FINAL - MÓDULO 4\aplicacion_clima_m4> git push -u origin main
-Enumerating objects: 18, done.
-Counting objects: 100% (18/18), done.
+PS C:\Front-End Talento digital\Módulo 5\aplicacion_clima_m5> git commit -m "App de clima V.5"
+[main c09a866] App de clima V.5
+ 9 files changed, 307 insertions(+), 190 deletions(-)
+ create mode 100644 CMD - V.5.txt
+ create mode 100644 assets/js/detalle.js
+ create mode 100644 assets/js/weatherapp.js
+PS C:\Front-End Talento digital\Módulo 5\aplicacion_clima_m5> git remote add origin https://github.com/pablodisewild/App-de-Clima-Versi-n-5_front-end_sustantivaSPA.git
+error: remote origin already exists.
+PS C:\Front-End Talento digital\Módulo 5\aplicacion_clima_m5> git remote -v
+origin  https://github.com/pablodisewild/modulo4-front-end_sustantiva_spa-portafolio-v4.git (fetch)
+origin  https://github.com/pablodisewild/modulo4-front-end_sustantiva_spa-portafolio-v4.git (push)
+PS C:\Front-End Talento digital\Módulo 5\aplicacion_clima_m5> git remote remove origin
+PS C:\Front-End Talento digital\Módulo 5\aplicacion_clima_m5> git remote add origin https://github.com/pablodisewild/App-de-Clima-Versi-n-5_front-end_sustantivaSPA.git
+PS C:\Front-End Talento digital\Módulo 5\aplicacion_clima_m5> git remote -v
+origin  https://github.com/pablodisewild/App-de-Clima-Versi-n-5_front-end_sustantivaSPA.git (fetch)
+origin  https://github.com/pablodisewild/App-de-Clima-Versi-n-5_front-end_sustantivaSPA.git (push)
+PS C:\Front-End Talento digital\Módulo 5\aplicacion_clima_m5> git branch -M main
+PS C:\Front-End Talento digital\Módulo 5\aplicacion_clima_m5> git push -u origin main
+Enumerating objects: 31, done.
+Counting objects: 100% (31/31), done.
 Delta compression using up to 12 threads
-Compressing objects: 100% (18/18), done.
-Writing objects: 100% (18/18), 8.37 KiB | 2.09 MiB/s, done.
-Total 18 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
-remote: Resolving deltas: 100% (1/1), done.
-To https://github.com/pablodisewild/modulo4-front-end_sustantiva_spa-portafolio-v4.git
+Compressing objects: 100% (31/31), done.
+Writing objects: 100% (31/31), 12.84 KiB | 1011.00 KiB/s, done.
+Total 31 (delta 6), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (6/6), done.
+To https://github.com/pablodisewild/App-de-Clima-Versi-n-5_front-end_sustantivaSPA.git
  * [new branch]      main -> main
 branch 'main' set up to track 'origin/main'.
-PS C:\Front-End Talento digital\Módulo 4\ENTREGA FINAL - MÓDULO 4\aplicacion_clima_m4>
+PS C:\Front-End Talento digital\Módulo 5\aplicacion_clima_m5>
